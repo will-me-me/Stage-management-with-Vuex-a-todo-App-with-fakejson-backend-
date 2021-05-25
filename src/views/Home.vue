@@ -6,42 +6,18 @@
       </h1>
       <div>
         <AddTodo class="py-4" />
+        <filterTodo class="py-2" />
       </div>
     </div>
     <div class="todos">
       <div class="todo" v-for="todo in alltodos" :key="todo.id">
         {{ todo.title }}
         <div class="mt-4">
-          <v-icon @click="deleteTodo(todo.id)" large mb-10px>{{
-            icons.mdiDelete
-          }}</v-icon>
+          <v-icon large mb-10px @click="deleteTodo(todo.title)">
+            {{ icons.mdiDelete }}</v-icon
+          >
         </div>
       </div>
-
-      <!-- <h1 class="text-center text-capitalize caption my-2">
-        this is the home page
-      </h1>
-      <v-row dense wrap>
-        <v-col
-          xs12
-          sm6
-          md4
-          lg3
-          class="text-xs-center ma-3"
-          v-for="todo in alltodos"
-          :key="todo.id"
-        >
-          <v-card gutters>
-            <v-card-text class="todo">
-              {{ todo.title }}
-            </v-card-text>
-            <v-card-action>
-              <v-btn>delete</v-btn>
-            </v-card-action>
-          </v-card>
-          <v-divider></v-divider>
-        </v-col>
-      </v-row> -->
     </div>
   </v-container>
 </template>
@@ -49,6 +25,7 @@
 <script>
 import { mdiAccount, mdiPencil, mdiShareVariant, mdiDelete } from "@mdi/js";
 import AddTodo from "../components/AddTodo";
+import filterTodo from "../components/filterTodo";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -63,6 +40,7 @@ export default {
 
   components: {
     AddTodo,
+    filterTodo,
   },
   data: () => ({
     icons: {

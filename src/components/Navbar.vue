@@ -9,7 +9,7 @@
 
       <v-menu offset-x transition="fab-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn v-bind="attrs" v-on="on" flat color="grey dark">
+          <v-btn v-bind="attrs" v-on="on" depressed color="grey dark">
             <span>Menu</span>
           </v-btn>
         </template>
@@ -20,14 +20,14 @@
             router
             :to="link.route"
           >
-            <v-list-title>
+            <v-list-item-title>
               {{ link.text }}
-            </v-list-title>
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
       <v-spacer></v-spacer>
-      <v-bt depressed>menu</v-bt>
+      <v-btn depressed>menu</v-btn>
     </v-toolbar>
     <v-navigation-drawer
       app
