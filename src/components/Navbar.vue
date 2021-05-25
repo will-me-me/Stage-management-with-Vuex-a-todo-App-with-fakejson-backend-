@@ -29,11 +29,36 @@
       <v-spacer></v-spacer>
       <v-btn depressed>menu</v-btn>
     </v-toolbar>
-    <v-navigation-drawer
-      app
-      v-model="drawer"
-      class="teal lighten-2"
-    ></v-navigation-drawer>
+    <v-navigation-drawer app v-model="drawer" class="teal lighten-2">
+      <v-row column align-center>
+        <v-col class="my-5 mx-5">
+          <v-subheader headlight bold text class="text-uppercase white--text"
+            >MyToDO</v-subheader
+          >
+        </v-col>
+        <v-col> </v-col>
+      </v-row>
+      <v-list dense rounded>
+        <v-list-item-group color="">
+          <v-list-item
+            v-for="link in links"
+            :key="link.text"
+            router
+            :to="link.route"
+          >
+            <v-list-item-icon>
+              <!-- <v-icon left class="white--text">{{ link.icon }}</v-icon> -->
+            </v-list-item-icon>
+            <v-list-content>
+              <v-list-item-title class="dark--text">{{
+                link.text
+              }}</v-list-item-title>
+            </v-list-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <v-divider></v-divider>
+    </v-navigation-drawer>
   </div>
 </template>
 
@@ -42,8 +67,8 @@ export default {
   data: () => ({
     drawer: false,
     links: [
-      { icon: "dashboard", text: "Dashboard", route: "/" },
-      { icon: "quiz", text: "About", route: "/About" },
+      { icon: "mdidashboard", text: "Dashboard", route: "/" },
+      { icon: "mdiquiz", text: "About", route: "/About" },
     ],
   }),
 };
