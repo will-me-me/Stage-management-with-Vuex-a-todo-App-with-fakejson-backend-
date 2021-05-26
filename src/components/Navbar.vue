@@ -49,11 +49,11 @@
             <v-list-item-icon>
               <!-- <v-icon left class="white--text">{{ link.icon }}</v-icon> -->
             </v-list-item-icon>
-            <v-list-content>
+            <v-list-item-content>
               <v-list-item-title class="dark--text">{{
                 link.text
               }}</v-list-item-title>
-            </v-list-content>
+            </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
       </v-list>

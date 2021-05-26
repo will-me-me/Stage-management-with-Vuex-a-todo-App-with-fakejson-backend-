@@ -9,11 +9,22 @@
         <filterTodo class="py-2" />
       </div>
     </div>
+    <div class="legend">
+      <span>Double click to mark as complete</span>
+      <span> <span class="incomplete-box"></span> =Incomplete </span>
+      <span> <span class="complete-box"></span> =Complete </span>
+    </div>
     <div class="todos">
-      <div class="todo" v-for="todo in alltodos" :key="todo.id">
+      <div
+        v-bind="{ 'is-complete': todo.completed }"
+        @dblclick="onDblclick(todo)"
+        class="todo"
+        v-for="todo in alltodos"
+        :key="todo.id"
+      >
         {{ todo.title }}
         <div class="mt-4">
-          <v-icon large mb-10px @click="deleteTodo(todo.title)">
+          <v-icon large mb-10px @click="deleteTodo(todo.title)" color="white">
             {{ icons.mdiDelete }}</v-icon
           >
         </div>
@@ -31,7 +42,15 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Home",
   methods: {
-    ...mapActions(["fetchTodos", "deleteTodo"]),
+    ...mapActions(["fetchTodos", "deleteTodo", "UpdateTodo"]),
+    onDblclick(todo) {
+      const updTodo = {
+        id: todo.id,
+        title: todo.title,
+        completed: !todo.completed,
+      };
+      this.UpdateTodo(updTodo);
+    },
   },
   computed: mapGetters(["alltodos"]),
   created() {
@@ -65,5 +84,27 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
+}
+.legend {
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 1rem;
+}
+.is-complete {
+  background: #35495e;
+  color: #fff;
+}
+.complete-box {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #354952;
+}
+.incomplete-box {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #41b883;
 }
 </style>
