@@ -7,7 +7,7 @@
         text--bold text-uppercase text-center text-decoration-underline
       "
     >
-      This is an about page
+      This is an about this Project
     </h1>
     <div class="about">
       <v-expansion-panels focusable inset popout>
@@ -16,7 +16,7 @@
             About The Project</v-expansion-panel-header
           >
           <v-expansion-panel-content>
-            <p class="text-capitalize">
+            <p class="text-capitalize overline">
               this is a simple Todo app created using Vue.js and Vuitify.Vuex is
               used in this application for stage management where one is able to
               add a todo, delete and filter the number of todos in the Ui.
