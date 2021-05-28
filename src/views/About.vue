@@ -11,7 +11,7 @@
         This is an about this Project
       </h1>
       <div class="about">
-        <v-expansion-panels focusable inset popout>
+        <v-expansion-panels focusable inset popout class="mx-2">
           <v-expansion-panel v-for="(item, i) in 3" :key="i">
             <v-expansion-panel-header>
               About The Project</v-expansion-panel-header
@@ -44,6 +44,10 @@ export default {
 <style scoped>
 .about {
   justify-content: center;
+  align-content: center;
   border: red;
+}
+.v-expansion-panel {
+  max-width: 500px;
 }
 </style>
